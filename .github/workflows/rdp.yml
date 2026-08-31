@@ -34,19 +34,6 @@ jobs:
         Add-LocalGroupMember -Group "Remote Desktop Users" -Member "runneradmin" -ErrorAction SilentlyContinue
 
         Write-Host "✅ RDP enabled successfully!"
-        
-    - name: 🌐 Start PlayIt Tunnel
-      run: |
-        Write-Host "🌐 Starting PlayIt tunnel for RDP..."
-
-        # Start PlayIt in background
-        $process = Start-Process -FilePath ".\playit.exe" -ArgumentList "tcp", "3389" -PassThru -WindowStyle Hidden
-
-        Write-Host "⏳ Waiting for tunnel to establish..."
-        Start-Sleep -Seconds 15
-
-        Write-Host "🔗 PlayIt tunnel should be running!"
-        Write-Host "📋 Check the Actions log for the tunnel URL"
 
     - name: 📦 Install Useful Software
       run: |
