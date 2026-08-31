@@ -34,22 +34,7 @@ jobs:
         Add-LocalGroupMember -Group "Remote Desktop Users" -Member "runneradmin" -ErrorAction SilentlyContinue
 
         Write-Host "✅ RDP enabled successfully!"
-
-    - name: 📦 Download PlayIt.gg
-      run: |
-        Write-Host "📥 Downloading PlayIt.gg tunnel..."
-        $url = "https://playit.gg/downloads/playit-win_64.exe"
-        try {
-            Invoke-WebRequest -Uri $url -OutFile "playit.exe" -UseBasicParsing
-            Write-Host "✅ PlayIt.gg downloaded successfully!"
-        } catch {
-            Write-Host "❌ Failed to download PlayIt.gg, trying alternative..."
-            # Alternative download method
-            $webClient = New-Object System.Net.WebClient
-            $webClient.DownloadFile($url, "playit.exe")
-            Write-Host "✅ PlayIt.gg downloaded via alternative method!"
-        }
-
+        
     - name: 🌐 Start PlayIt Tunnel
       run: |
         Write-Host "🌐 Starting PlayIt tunnel for RDP..."
