@@ -71,25 +71,6 @@ jobs:
         Write-Host "💾 Disk: $([math]::Round((Get-PSDrive C | Select-Object -ExpandProperty Free) / 1GB, 2)) GB Free"
         Write-Host "🌐 IP: $(Invoke-RestMethod -Uri 'https://api.ipify.org' -ErrorAction SilentlyContinue)"
         Write-Host "=================================="
-
-    - name: 🔑 Display Connection Details
-      run: |
-        Write-Host "=================================="
-        Write-Host "🖥️  RDP CONNECTION DETAILS"
-        Write-Host "=================================="
-        Write-Host "👤 Username: runneradmin"
-        Write-Host "🔑 Password: RDP@GitHub2024!"
-        Write-Host "🌐 Tunnel: Check PlayIt.gg output above"
-        Write-Host "=================================="
-        Write-Host "📝 Instructions:"
-        Write-Host "1. Copy the tunnel URL from PlayIt output"
-        Write-Host "2. Use any RDP client to connect"
-        Write-Host "3. Enter the credentials above"
-        Write-Host "=================================="
-        Write-Host "⏰ Session Duration: 6 hours maximum"
-        Write-Host "🔄 Re-run this workflow for new session"
-        Write-Host "=================================="
-
     - name: 🔄 Keep Session Active
       run: |
         Write-Host "🟢 Session is now active!"
